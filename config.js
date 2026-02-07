@@ -117,5 +117,17 @@ const CONFIG = {
     copyright: "2026 Joydeep Bhattacharya. All rights reserved.",
     madeBy: "Made with ❤️ by",
     websiteUrl: "https://joydeep.io"
+  },
+
+  // SEO & Social Sharing
+  seo: {
+    title: "Joydeep Bhattacharya - Lead Software Engineer",
+    description: "Lead Software Engineer with 10+ years of experience in backend architecture, microservices, and scalable system design. Specialized in Go, NodeJS, Kubernetes, and distributed systems.",
+    keywords: "software engineer, backend developer, Go, NodeJS, Kubernetes, microservices, distributed systems, cloud architecture, AWS, Azure, technical leadership",
+    author: "Joydeep Bhattacharya",
+    siteUrl: "https://joydeep.io",
+    image: "https://github.com/linkwithjoydeep.png", // Social sharing image
+    twitterHandle: "@linkwithjoydeep", // Update if you have Twitter
+    type: "website"
   }
 };

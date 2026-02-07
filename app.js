@@ -1,8 +1,104 @@
+// Add SEO and social sharing meta tags
+function addSEOMetaTags() {
+  const head = document.head;
+
+  // Basic meta tags
+  const metaTags = [
+    { name: 'description', content: CONFIG.seo.description },
+    { name: 'keywords', content: CONFIG.seo.keywords },
+    { name: 'author', content: CONFIG.seo.author },
+
+    // Open Graph (Facebook, LinkedIn)
+    { property: 'og:title', content: CONFIG.seo.title },
+    { property: 'og:description', content: CONFIG.seo.description },
+    { property: 'og:image', content: CONFIG.seo.image },
+    { property: 'og:url', content: CONFIG.seo.siteUrl },
+    { property: 'og:type', content: CONFIG.seo.type },
+    { property: 'og:site_name', content: CONFIG.name },
+
+    // Twitter Card
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: CONFIG.seo.title },
+    { name: 'twitter:description', content: CONFIG.seo.description },
+    { name: 'twitter:image', content: CONFIG.seo.image },
+    { name: 'twitter:creator', content: CONFIG.seo.twitterHandle },
+
+    // Additional
+    { name: 'robots', content: 'index, follow' },
+    { name: 'googlebot', content: 'index, follow' }
+  ];
+
+  // Add or update meta tags
+  metaTags.forEach(tag => {
+    const attribute = tag.name ? 'name' : 'property';
+    const attributeValue = tag.name || tag.property;
+
+    let metaElement = head.querySelector(`meta[${attribute}="${attributeValue}"]`);
+
+    if (!metaElement) {
+      metaElement = document.createElement('meta');
+      metaElement.setAttribute(attribute, attributeValue);
+      head.appendChild(metaElement);
+    }
+
+    metaElement.setAttribute('content', tag.content);
+  });
+
+  // Add canonical URL
+  let canonicalLink = head.querySelector('link[rel="canonical"]');
+  if (!canonicalLink) {
+    canonicalLink = document.createElement('link');
+    canonicalLink.rel = 'canonical';
+    head.appendChild(canonicalLink);
+  }
+  canonicalLink.href = CONFIG.seo.siteUrl;
+
+  // Add JSON-LD structured data
+  addStructuredData();
+}
+
+// Add JSON-LD structured data for search engines
+function addStructuredData() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": CONFIG.name,
+    "jobTitle": CONFIG.title,
+    "email": CONFIG.email,
+    "url": CONFIG.seo.siteUrl,
+    "image": CONFIG.seo.image,
+    "sameAs": [
+      CONFIG.social.github,
+      CONFIG.social.linkedin,
+      CONFIG.social.medium,
+      CONFIG.social.personalBlog
+    ],
+    "description": CONFIG.about,
+    "alumniOf": CONFIG.education.map(edu => ({
+      "@type": "EducationalOrganization",
+      "name": edu.institution
+    })),
+    "knowsAbout": CONFIG.skills
+  };
+
+  let scriptTag = document.querySelector('script[type="application/ld+json"]');
+  if (!scriptTag) {
+    scriptTag = document.createElement('script');
+    scriptTag.type = 'application/ld+json';
+    document.head.appendChild(scriptTag);
+  }
+
+  scriptTag.textContent = JSON.stringify(structuredData, null, 2);
+}
+
 // Initialize the website with config data
 function initializeWebsite() {
   // Update page title and favicon
-  document.title = `${CONFIG.name} - ${CONFIG.title}`;
+  document.title = CONFIG.seo.title;
   document.querySelector('link[rel="icon"]').href = CONFIG.favicon;
+
+  // Add SEO meta tags
+  addSEOMetaTags();
 
   // Update header
   document.querySelector('.name').textContent = CONFIG.name;
