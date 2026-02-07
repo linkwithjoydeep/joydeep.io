@@ -167,6 +167,32 @@
       </div>
     </section>
 
+    <section id="recent-work">
+      <h2 class="section-title">Recent Work</h2>
+
+      <div class="project-card">
+        <div class="project-card-header">
+          <h3 class="project-title">go-dotignore</h3>
+        </div>
+        <p class="project-description"></p>
+        <div class="tech-stack"></div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-header">
+          <h3 class="project-title">kite-mcp</h3>
+        </div>
+        <p class="project-description"></p>
+        <div class="tech-stack"></div>
+      </div>
+
+      <div class="view-more-projects">
+        <a href="https://github.com/linkwithjoydeep?tab=repositories" target="_blank" class="view-more-link">
+          View More on GitHub →
+        </a>
+      </div>
+    </section>
+
     <section id="education">
       <h2 class="section-title">Education</h2>
 
@@ -205,20 +231,7 @@
     </footer>
   </div>
 
-  <script>
-    function copyEmail() {
-      const email = 'hello@joydeep.io';
-      navigator.clipboard.writeText(email).then(() => {
-        const tooltip = document.getElementById('copyTooltip');
-        tooltip.classList.add('show');
-        setTimeout(() => {
-          tooltip.classList.remove('show');
-        }, 2000);
-      }).catch(err => {
-        console.error('Failed to copy email:', err);
-      });
-    }
-  </script>
+  <script src="main.js"></script>
 </body>
 
 </html>
