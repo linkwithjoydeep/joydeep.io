@@ -171,6 +171,58 @@ header {
   width: 100%;
 }
 
+/* Email copy button */
+.email-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.copy-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  line-height: 0;
+}
+
+.copy-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--bg-card);
+}
+
+.copy-btn svg {
+  display: block;
+}
+
+.copy-tooltip {
+  position: absolute;
+  top: -2rem;
+  right: 0;
+  background: var(--accent);
+  color: var(--bg-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 2px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+.copy-tooltip.show {
+  opacity: 1;
+}
+
 /* Social Links */
 .social-links {
   display: flex;

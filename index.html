@@ -24,8 +24,16 @@
           <h1 class="name">Joydeep Bhattacharya</h1>
           <p class="title">Lead Software Engineer</p>
           <div class="contact-info">
-            <a class="" href="mailto:hello@joydeep.io">hello@joydeep.io</a>
-            <span>W.B, India</span>
+            <span class="email-wrapper">
+              Email: <a href="mailto:hello@joydeep.io">hello@joydeep.io</a>
+              <button class="copy-btn" onclick="copyEmail()" title="Copy email">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                  <path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                </svg>
+              </button>
+              <span class="copy-tooltip" id="copyTooltip">Copied!</span>
+            </span>
+            <span>Location: W.B, India</span>
           </div>
           <div class="social-links">
             <a href="https://github.com/linkwithjoydeep" target="_blank" class="social-link" title="GitHub">
@@ -179,6 +187,21 @@
       <p>&copy; 2026 Joydeep Bhattacharya. All rights reserved.</p>
     </footer>
   </div>
+
+  <script>
+    function copyEmail() {
+      const email = 'hello@joydeep.io';
+      navigator.clipboard.writeText(email).then(() => {
+        const tooltip = document.getElementById('copyTooltip');
+        tooltip.classList.add('show');
+        setTimeout(() => {
+          tooltip.classList.remove('show');
+        }, 2000);
+      }).catch(err => {
+        console.error('Failed to copy email:', err);
+      });
+    }
+  </script>
 </body>
 
 </html>
