@@ -279,8 +279,8 @@ header {
   fill: currentColor;
 }
 
-/* Summary */
-.summary {
+/* About Me */
+.about-me {
   margin: 1rem 0 5rem;
   padding: 3rem;
   background: var(--bg-card);
@@ -292,7 +292,7 @@ header {
   animation: fadeInUp 1s ease-out 0.4s forwards;
 }
 
-.summary::before {
+.about-me::before {
   content: '';
   position: absolute;
   top: 0;
@@ -302,24 +302,15 @@ header {
   background: linear-gradient(to bottom, var(--accent), transparent);
 }
 
-.summary ul {
-  list-style: none;
-  display: grid;
-  gap: 1.5rem;
+.about-me .section-title {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
-.summary li {
-  padding-left: 1.5rem;
-  position: relative;
+.about-me p {
   color: var(--text-secondary);
-}
-
-.summary li::before {
-  content: '→';
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-  font-weight: 500;
+  line-height: 1.8;
+  font-size: 1.05rem;
 }
 
 /* Section */
@@ -448,10 +439,6 @@ section:nth-child(5) {
   background: linear-gradient(to bottom, var(--border), transparent);
 }
 
-.experience-item:last-child::after {
-  display: none;
-}
-
 .experience-header {
   margin-bottom: 1.5rem;
 }
@@ -506,6 +493,75 @@ section:nth-child(5) {
   color: var(--accent);
   font-size: 1.5rem;
   line-height: 1.2;
+}
+
+/* Education */
+.education-item {
+  margin-bottom: 3.5rem;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.education-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 20px var(--glow);
+}
+
+.education-item::after {
+  content: '';
+  position: absolute;
+  left: 3.5px;
+  top: 1.5rem;
+  width: 1px;
+  height: calc(100% - 1rem);
+  background: linear-gradient(to bottom, var(--border), transparent);
+}
+
+.education-header {
+  margin-bottom: 0.5rem;
+}
+
+.degree-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.institution-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+}
+
+.institution {
+  color: var(--text-secondary);
+}
+
+.credential-link {
+  color: var(--accent-dim);
+  text-decoration: none;
+  font-size: 0.8125rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.credential-link:hover {
+  color: var(--accent);
+  transform: translateX(2px);
 }
 
 /* Recommendations */
@@ -619,7 +675,7 @@ footer {
     font-size: 0.75rem;
   }
 
-  .summary {
+  .about-me {
     padding: 2rem;
     margin: 2rem 0 3rem;
   }
@@ -633,7 +689,17 @@ footer {
     margin-bottom: 3rem;
   }
 
+  .education-item {
+    padding-left: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
   .company-period {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .institution-info {
     flex-direction: column;
     align-items: flex-start;
   }
