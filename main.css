@@ -845,6 +845,36 @@ footer {
   margin-top: 5rem;
 }
 
+footer p {
+  line-height: 1.8;
+}
+
+footer a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+footer a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--accent);
+}
+
+footer a:hover::after {
+  width: 100%;
+}
+
 /* Animations */
 @keyframes fadeInUp {
   from {
