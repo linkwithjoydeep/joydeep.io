@@ -96,6 +96,22 @@ const CONFIG = {
     url: "https://www.linkedin.com/in/linkwithjoy/details/recommendations/"
   },
 
+  // GitHub Repositories (for Recent Work section)
+  githubRepos: [
+    {
+      owner: 'linkwithjoydeep',
+      repo: 'go-dotignore',
+      tags: ['Pattern Matching', 'CLI Tools', 'File System'],
+      liveDemo: null // Add live demo URL if available
+    },
+    {
+      owner: 'linkwithjoydeep',
+      repo: 'kite-mcp',
+      tags: ['MCP', 'Trading API', 'OAuth 2.0'],
+      liveDemo: null // Add live demo URL if available
+    }
+  ],
+
   // Footer
   footer: {
     copyright: "2026 Joydeep Bhattacharya. All rights reserved.",

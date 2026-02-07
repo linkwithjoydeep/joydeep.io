@@ -24,6 +24,14 @@ Source code for my personal portfolio website.
 
 All content is managed through `config.js` for easy updates.
 
+### Updating Content
+
+1. Edit `config.js` with your changes
+2. Run `./update-versions.sh` to update cache-busting version numbers
+3. Commit and push your changes
+
+The version update script automatically timestamps all CSS/JS files to prevent browser caching issues.
+
 ---
 
 © 2026 Joydeep Bhattacharya

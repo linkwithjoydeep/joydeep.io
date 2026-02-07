@@ -1,30 +1,5 @@
-function copyEmail() {
-  const email = 'hello@joydeep.io';
-  navigator.clipboard.writeText(email).then(() => {
-    const tooltip = document.getElementById('copyTooltip');
-    tooltip.classList.add('show');
-    setTimeout(() => {
-      tooltip.classList.remove('show');
-    }, 2000);
-  }).catch(err => {
-    console.error('Failed to copy email:', err);
-  });
-}
-
-const GITHUB_REPOS = [
-  {
-    owner: 'linkwithjoydeep',
-    repo: 'go-dotignore',
-    tags: ['Pattern Matching', 'CLI Tools', 'File System'],
-    liveDemo: null
-  },
-  {
-    owner: 'linkwithjoydeep',
-    repo: 'kite-mcp',
-    tags: ['MCP', 'Trading API', 'OAuth 2.0'],
-    liveDemo: null
-  }
-];
+// GitHub API integration for Recent Work section
+// Repository data is now in config.js (CONFIG.githubRepos)
 
 async function fetchGitHubRepoData(owner, repo) {
   try {
@@ -171,8 +146,8 @@ async function loadGitHubData() {
   projectCards.forEach(card => showLoadingState(card));
 
   // Fetch and update data for each card
-  for (let i = 0; i < GITHUB_REPOS.length && i < projectCards.length; i++) {
-    const { owner, repo, tags, liveDemo } = GITHUB_REPOS[i];
+  for (let i = 0; i < CONFIG.githubRepos.length && i < projectCards.length; i++) {
+    const { owner, repo, tags, liveDemo } = CONFIG.githubRepos[i];
     const githubUrl = `https://github.com/${owner}/${repo}`;
     const repoData = await fetchGitHubRepoData(owner, repo);
     updateProjectCard(projectCards[i], repoData, tags, githubUrl, liveDemo);
