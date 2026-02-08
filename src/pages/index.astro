@@ -4,8 +4,6 @@ import content from "../data/content.json"
 import BaseLayout from "../layouts/BaseLayout.astro"
 import ThemeSwitcher from "../components/ThemeSwitcher.astro"
 import GitHubProjects from "../components/GitHubProjects.astro"
-
-const socialIcons = content.socialIcons as Record<string, { title: string; svg: string }>;
 ---
 
 <BaseLayout>
@@ -29,16 +27,16 @@ const socialIcons = content.socialIcons as Record<string, { title: string; svg: 
             <span>Location: {content.location}</span>
           </div>
           <div class="social-links">
-            {Object.entries(content.social).map(([platform, url]) => (
-              <a 
-                href={url} 
-                target={platform !== 'email' ? '_blank' : undefined}
-                class="social-link" 
-                title={socialIcons[platform].title}
-                aria-label={socialIcons[platform].title}
+            {content.social.map((social) => (
+              <a
+                href={social.url}
+                target={social.id !== 'email' ? '_blank' : undefined}
+                class="social-link"
+                title={social.title}
+                aria-label={social.title}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                  <path d={socialIcons[platform].svg} />
+                  <path d={social.svg} />
                 </svg>
               </a>
             ))}
@@ -93,7 +91,7 @@ const socialIcons = content.socialIcons as Record<string, { title: string; svg: 
       <GitHubProjects repos={content.githubRepos} />
 
       <div class="view-more-projects">
-        <a href={`${content.social.github}?tab=repositories`} target="_blank" class="view-more-link">
+        <a href={`${content.social.find(s => s.id === 'github')?.url}?tab=repositories`} target="_blank" class="view-more-link">
           View More on GitHub →
         </a>
       </div>
