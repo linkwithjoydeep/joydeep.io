@@ -50,7 +50,13 @@ Feel free to use this theme for your own portfolio! Simply:
 3. Customize styles in `src/styles/global.css` as needed
 4. Deploy to your preferred hosting platform
 
-If you use this theme, it would be much appreciated if you keep the footer attribution "Made with love by Joydeep Bhattacharya" and give this repo a star ⭐
+If you use this theme, giving this repo a star ⭐ would be much appreciated!
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+This means you can freely use, modify, and distribute this code for personal or commercial projects. Attribution is appreciated but not required.
 
 ---
 
