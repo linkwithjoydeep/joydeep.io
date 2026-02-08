@@ -126,6 +126,15 @@
         "OAuth 2.0"
       ],
       "liveDemo": null
+    },
+    {
+      "owner": "linkwithjoydeep",
+      "repo": "joydeep.io",
+      "tags": [
+        "Personal Portfolio",
+        "Astro Theme"
+      ],
+      "liveDemo": "https://joydeep.io"
     }
   ],
   "footer": {
